@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							
 							<li><a href="https://www.linkedin.com/in/stefan-dezarn-7891b2231" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						<ul class="copyright">
-							<li>&copy; Stefan DeZarn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li><a href="https://stefandezarn.github.io/time-bandit/">Time Bandit</a></li>
+							<li>&copy; Stefan DeZarn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li><a id="time-bandit" href="https://stefandezarn.github.io/time-bandit/">Time Bandit</a></li>
 
 						</ul>
 					</footer>
@@ -148,6 +148,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 
 		<!-- Scripts -->
+			<script>
+    				// Get the current query parameters from the homepage
+    				const queryParams = window.location.search;
+
+    				// Get the link to the second page
+    				const link = document.getElementById('time-bandit');
+
+    				// If there are query parameters, append them to the link
+    				if (queryParams) {link.href = link.href + queryParams;
+    						}
+ 			 </script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
