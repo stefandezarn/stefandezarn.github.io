@@ -4001,16 +4001,16 @@ input, select, textarea {
 
 	* Custom Cookie Banner - Tuned for Spectral */
 #cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #2e3842; /* Matches Spectral's body background */
+    position: fixed !important; /* Force it to stay relative to the screen */
+    bottom: 0 !important;       /* Stick to the bottom */
+    left: 0 !important;
+    right: 0 !important;        /* Ensure it stretches across the width */
+    width: 100% !important;
+    background: #2e3842;        /* Spectral background color */
     border-top: solid 2px #fff;
-    color: #fff;
     padding: 1.5em;
-    z-index: 10005; /* Extra high to stay above the 'wrapper' */
-    font-family: "Open Sans", Helvetica, sans-serif;
+    z-index: 99999 !important;  /* Higher than Spectral's header/nav */
+    transform: none !important; /* Prevents Spectral's scroll animations from moving it */
 }
 
 #cookie-banner .cookie-content {
@@ -4058,3 +4058,4 @@ input, select, textarea {
         margin-top: 1em;
     }
 }
+
