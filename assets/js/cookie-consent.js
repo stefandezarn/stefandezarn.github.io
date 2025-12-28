@@ -1,31 +1,43 @@
+// 1. Define the gtag function for GTM
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
 document.addEventListener("DOMContentLoaded", function () {
     const banner = document.getElementById("cookie-banner");
     const acceptBtn = document.getElementById("accept-cookies");
     const rejectBtn = document.getElementById("reject-cookies");
 
-    // 1. Check if user has already made a choice
-    const consent = localStorage.getItem("cookieConsent");
+    // Check localStorage for existing choice
+    const consentChoice = localStorage.getItem("cookieConsent");
 
-    if (!consent) {
+    // 2. If no choice has been made, show the banner
+    if (!consentChoice) {
         banner.style.display = "block";
-    } else if (consent === "accepted") {
-        loadTrackingScripts();
     }
 
-    // 2. Handle "Accept" click
+    // 3. Handle Accept
     acceptBtn.addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "accepted");
+        localStorage.setItem("cookieConsent", "granted");
         banner.style.display = "none";
-        loadTrackingScripts(); // Start tracking immediately
+        
+        // Update GTM Consent Mode
+        gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+        });
+        dataLayer.push({'event': 'consent_updated'});
     });
 
-    // 3. Handle "Reject" click
+    // 4. Handle Reject
     rejectBtn.addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "rejected");
+        localStorage.setItem("cookieConsent", "denied");
         banner.style.display = "none";
-        // Do NOT load tracking scripts
+        
+        // Update GTM Consent Mode
+        gtag('consent', 'update', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        dataLayer.push({'event': 'consent_updated'});
     });
-
-    
-    }
 });
