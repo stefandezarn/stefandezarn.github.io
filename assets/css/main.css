@@ -3999,41 +3999,62 @@ input, select, textarea {
 		background-color: #1d242a;
 	}
 
-	.cookie-banner {
+	* Custom Cookie Banner - Tuned for Spectral */
+#cookie-banner {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #1a1a1a;
-    color: white;
-    padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
-    z-index: 9999;
-    font-family: sans-serif;
+    background: #2e3842; /* Matches Spectral's body background */
+    border-top: solid 2px #fff;
+    color: #fff;
+    padding: 1.5em;
+    z-index: 10005; /* Extra high to stay above the 'wrapper' */
+    font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.cookie-content {
+#cookie-banner .cookie-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
-.cookie-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
+/* Ensure buttons are visible against the dark background */
+#cookie-banner button {
+    appearance: none;
+    background-color: transparent;
+    border: solid 2px #fff !important;
+    color: #fff !important;
     cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 800;
+    letter-spacing: 0.225em;
+    padding: 0 2em;
+    text-transform: uppercase;
+    height: 3em;
+    line-height: 3em;
+    margin-left: 10px;
 }
 
-.btn-accept { background: #4CAF50; color: white; }
-.btn-reject { background: #f44336; color: white; }
-.btn-manage { background: #555; color: white; }
+#cookie-banner button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#cookie-banner .btn-accept {
+    background-color: #21b2a6 !important; /* Spectral's accent teal color */
+    border-color: #21b2a6 !important;
+}
+
+/* Mobile responsive tweak for Spectral */
+@media screen and (max-width: 736px) {
+    #cookie-banner .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    #cookie-banner .cookie-buttons {
+        margin-top: 1em;
+    }
+}
