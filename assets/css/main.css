@@ -4002,7 +4002,7 @@ input, select, textarea {
 	* Custom Cookie Banner - Tuned for Spectral */
 #cookie-banner {
     position: fixed !important; /* Force it to stay relative to the screen */
-    bottom: 0 !important;       /* Stick to the bottom */
+    top: 0 !important;       /* Stick to the bottom */
     left: 0 !important;
     right: 0 !important;        /* Ensure it stretches across the width */
     width: 100% !important;
@@ -4058,4 +4058,5 @@ input, select, textarea {
         margin-top: 1em;
     }
 }
+
 
