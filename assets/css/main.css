@@ -3999,65 +3999,43 @@ input, select, textarea {
 		background-color: #1d242a;
 	}
 
-	* Custom Cookie Banner - Tuned for Spectral */
-#cookie-banner {
-    position: fixed !important; /* Force it to stay relative to the screen */
-    bottom: 0 !important;       /* Stick to the bottom */
-    left: 0 !important;
-    right: 0 !important;        /* Ensure it stretches across the width */
-    width: 100% !important;
-    background: #2e3842;        /* Spectral background color */
-    border-top: solid 2px #fff;
+	#cookie-consent-popup {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
+    background: #2e3842 !important; /* Matches Spectral theme */
+    border: solid 2px #ffffff;
+    border-radius: 4px;
     padding: 1.5em;
-    z-index: 99999 !important;  /* Higher than Spectral's header/nav */
-    transform: none !important; /* Prevents Spectral's scroll animations from moving it */
+    z-index: 2147483647 !important; /* Forces it above everything */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-#cookie-banner .cookie-content {
+.cookie-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-/* Ensure buttons are visible against the dark background */
-#cookie-banner button {
-    appearance: none;
-    background-color: transparent;
-    border: solid 2px #fff !important;
+#cookie-consent-popup p {
+    margin: 0;
     color: #fff !important;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 0.8em;
-    font-weight: 800;
-    letter-spacing: 0.225em;
-    padding: 0 2em;
-    text-transform: uppercase;
-    height: 3em;
-    line-height: 3em;
-    margin-left: 10px;
+    font-size: 0.9em;
 }
 
-#cookie-banner button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.cookie-actions {
+    display: flex;
+    gap: 1rem;
 }
 
-#cookie-banner .btn-accept {
-    background-color: #21b2a6 !important; /* Spectral's accent teal color */
-    border-color: #21b2a6 !important;
-}
-
-/* Mobile responsive tweak for Spectral */
+/* Responsive for mobile */
 @media screen and (max-width: 736px) {
-    #cookie-banner .cookie-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    #cookie-banner .cookie-buttons {
-        margin-top: 1em;
-    }
+    .cookie-inner { flex-direction: column; text-align: center; gap: 1em; }
 }
+
 
 
 
