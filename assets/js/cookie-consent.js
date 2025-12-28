@@ -1,43 +1,40 @@
-// 1. Define the gtag function for GTM
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+(function() {
+    // 1. GTM Setup
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
 
-document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById("cookie-banner");
-    const acceptBtn = document.getElementById("accept-cookies");
-    const rejectBtn = document.getElementById("reject-cookies");
+    function initConsent() {
+        const banner = document.getElementById('cookie-consent-popup');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const rejectBtn = document.getElementById('cookie-reject');
+        
+        const currentConsent = localStorage.getItem('cookieConsent');
 
-    // Check localStorage for existing choice
-    const consentChoice = localStorage.getItem("cookieConsent");
+        // Show banner if no choice exists
+        if (!currentConsent) {
+            banner.style.display = 'block';
+        }
 
-    // 2. If no choice has been made, show the banner
-    if (!consentChoice) {
-        banner.style.display = "block";
+        // Button Logic
+        acceptBtn.onclick = function() {
+            localStorage.setItem('cookieConsent', 'granted');
+            gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted' });
+            banner.style.display = 'none';
+            window.dataLayer.push({'event': 'consent_updated'});
+        };
+
+        rejectBtn.onclick = function() {
+            localStorage.setItem('cookieConsent', 'denied');
+            gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+            banner.style.display = 'none';
+            window.dataLayer.push({'event': 'consent_updated'});
+        };
     }
 
-    // 3. Handle Accept
-    acceptBtn.addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "granted");
-        banner.style.display = "none";
-        
-        // Update GTM Consent Mode
-        gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'analytics_storage': 'granted'
-        });
-        dataLayer.push({'event': 'consent_updated'});
-    });
-
-    // 4. Handle Reject
-    rejectBtn.addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "denied");
-        banner.style.display = "none";
-        
-        // Update GTM Consent Mode
-        gtag('consent', 'update', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
-        });
-        dataLayer.push({'event': 'consent_updated'});
-    });
-});
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initConsent);
+    } else {
+        initConsent();
+    }
+})();
