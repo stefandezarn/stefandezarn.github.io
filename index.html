@@ -1,198 +1,255 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Stefan DeZarn</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			
-			  // Set default consent to 'denied'
-			  gtag('consent', 'default', {
-			    'ad_storage': 'denied',
-			    'analytics_storage': 'denied',
-			    'wait_for_update': 500
-			  });
-		</script>
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-PB76FS5Q');</script>
-		<!-- End Google Tag Manager -->
-	
-		<link rel="shortcut icon"
- href="images/myico1.png">
-	</head>
-	
-	<body class="landing is-preload">
-		
-		
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stefan DeZarn</title>
+  <meta name="description" content="Under construction. Find the imperfections." />
+  <meta property="og:title" content="Stefan DeZarn — under construction" />
+  <meta property="og:description" content="Find the imperfections." />
+  <link rel="icon" href="assets/favicon.png" />
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Stefan DeZarn (Data Analyst)</a></h1>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PB76FS5Q');</script>
+  <!-- End Google Tag Manager -->
 
-					</header>
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --ink: #202124;
+      --muted: #6b6f76;
+      --faint: #b9bcc1;
+      --line: #e3e2dd;
+      --card: #ffffff;
+      --orange: #e37400;
+      --amber: #f4a300;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131416;
+        --ink: #e8e8e6;
+        --muted: #9a9ea5;
+        --faint: #55595f;
+        --line: #2a2c30;
+        --card: #1b1c1f;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Stefan DeZarn</h2>
-							<p>Analytics Consultant<br />
-							GA4, GTM, BigQuery, Looker, and more</p>
+    header {
+      width: 100%;
+      max-width: 960px;
+      padding: 20px 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    header .name { color: var(--ink); font-weight: 600; letter-spacing: .01em; }
+    #counter { transition: opacity .6s; }
 
-						</div>
-						<a href="#one" class="more scrolly">About Me, Articles, Projects and Resume</a>
-					</section>
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>I am an analyst, problem solver, and a consultant<br />
-								interested in efficiency and novel solutions</h2>
-								<p>I have spent my life applying an analytical approach to every undertaking. I am motivated by discovery and the satisfaction of overcoming roadblocks to arrive at a solution. More than anything, I revere mastery and a job well done, and I am on a lifelong mission aimed at those things. You can view my data analysis/data science projects below, which demonstrate my thought processes and analysis skills.</p>
-							</header>
-							<ul class="icons major">
+    /* ---------- the mark ---------- */
+    #stage { width: min(78vw, 58vh, 460px); aspect-ratio: 1; position: relative; }
+    #mark { width: 100%; height: 100%; display: block; overflow: visible; cursor: default; }
+    .piece { transform-box: fill-box; transform-origin: center; }
+    .piece.gone {
+      transition: transform 1.1s cubic-bezier(.5,0,.75,0), opacity 1.1s ease-in;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .flaw { transition: opacity .5s; pointer-events: none; }
+    .hit { fill: transparent; cursor: default; outline: none; }
+    .hit:hover + .flaw, .hit:focus + .flaw { opacity: 1 !important; }
+    .hit:focus-visible { stroke: var(--muted); stroke-width: .8; stroke-dasharray: 2 2; }
+    .hint { animation: hint 1.4s ease-in-out 2; }
+    @keyframes hint { 50% { opacity: 1; filter: drop-shadow(0 0 3px rgba(0,0,0,.5)); } }
 
-								<li><span class="icon fa-solid fa-laptop-code"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon fa-solid fa-laptop-code"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon fa-solid fa-laptop-code"><span class="label">Ipsum</span></span></li>
-							</ul>
-						</div>
-					</section>
+    /* ---------- captions ---------- */
+    #caption {
+      min-height: 64px;
+      margin-top: 18px;
+      text-align: center;
+      transition: opacity .4s;
+    }
+    #caption .label { font-size: 16px; font-weight: 600; }
+    #caption .sub { color: var(--muted); font-size: 13px; }
+    #prompt { color: var(--muted); font-size: 13px; margin-top: 4px; transition: opacity .6s; }
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
+    /* ---------- the empty report ---------- */
+    #end {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.6s ease;
+      padding: 0 16px;
+    }
+    #end.show { opacity: 1; pointer-events: auto; }
+    .report {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .report .bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .report .body { padding: 44px 24px 36px; text-align: center; }
+    .report .empty-icon { width: 44px; height: 44px; margin: 0 auto 14px; color: var(--faint); }
+    .report h1 { font-size: 18px; font-weight: 500; margin: 0 0 6px; }
+    .report p { color: var(--muted); margin: 0; font-size: 14px; }
+    .links { display: flex; gap: 20px; justify-content: center; margin-top: 26px; font-size: 14px; }
+    .links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--faint); padding-bottom: 1px; }
+    .links a:hover { border-color: var(--orange); }
+    .reprocess {
+      margin-top: 22px;
+      background: none;
+      border: 0;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+    .reprocess:hover { color: var(--ink); }
 
-						<section class="spotlight" data-track="article-advanced-data-analysis-google-analytics-4-exploration-reports">
-							<div class="image"><img src="images/res-explo.png" alt="" /></div><div class="content">
-								<h2>  <a href="https://infotrust.com/articles/advanced-data-analysis-google-analytics-4-exploration-reports/">Advanced Custom Analysis Techniques in GA4</a></h2>
-								<p>How to Use Filters, Segments, and Dimensions for Better Insights<br />
-                                  </p>
-							</div>
-						</section>
-						<section class="spotlight" data-track="kaggle-concrete-strength-correlation-analysis">
-							<div class="image"><img src="images/90-2.jpeg" alt="" /></div><div class="content">
-								<h2>Concrete Strength Correlation Analysis<br />
-								And Prediction with Machine Learning</h2>
-								<p>Using Python, I analyze the relationships between the ingredients and age of concrete with our target variable, strength. Then I choose, tune, and train a machine learning model to predict concrete strengths.<br />
-                                    <a href="https://www.kaggle.com/code/stefandezarn/concrete-strength-analysis-and-regression">Project on Kaggle</a></p>
-							</div>
-						</section>
-						<section class="spotlight" data-track="article-dimension-and-metric-scoping-in-google-analytics-4">
-							<div class="image"><img src="images/res-scope.png" alt="" /></div><div class="content">
-								<h2>  <a href="https://infotrust.com/articles/dimension-and-metric-scoping-in-google-analytics-4/">Dimension and Metric Scoping in Google Analytics 4</a></h2>
-								<p>Essential Context for Understanding and Analyzing Your Data<br />
-                                  </p>
-							</div>
-						</section>
-						<section class="spotlight" data-track="article-maximizing-your-ad-performance-with-google-analytics-4-a-beginners-guide-to-advertising-data-and-insights">
-							<div class="image"><img src="images/res-adperf.png" alt="" /></div><div class="content">
-								<h2>  <a href="https://infotrust.com/articles/maximizing-your-ad-performance-with-google-analytics-4-a-beginners-guide-to-advertising-data-and-insights/">Maximizing Your Ad Performance with Google Analytics 4</a></h2>
-								<p>A Beginner’s Guide to Advertising Data and Insights<br />
-                                  </p>
-							</div>
-						</section>
-						<section class="spotlight" data-track="article-utm-parameters-in-ga4">
-							<div class="image"><img src="images/UTM-Parameters.jpg" alt="" /></div><div class="content">
-								<h2>  <a href="https://infotrust.com/articles/utm-parameters-in-ga4/">How to Use UTM Parameters in Google Analytics 4</a></h2>
-								<p>How to use UTM parameters to enable reporting on campaigns in GA4<br />
-                                  </p>
-							</div>
-						</section>
+    footer { padding: 18px 16px 22px; color: var(--faint); font-size: 12px; text-align: center; }
 
-						
-						<section class="spotlight" data-track="how-to-integrate-google-analytics-4-with-bigquery">
-							<div class="image"><img src="images/google-bigquery-logo-1.jpeg" alt="" /></div><div class="content">
-								<h2>  <a href="https://infotrust.com/articles/how-to-integrate-google-analytics-4-with-bigquery/">How to Integrate Google Analytics 4 with BigQuery for Enhanced Data Analysis and Reporting</a></h2>
-								<p>How and why to enable the GA4 BigQuery export<br />
-                                  </p>
-							</div>
-						</section>
-					</section>
+    /* ---------- consent banner ---------- */
+    #cookie-consent-popup {
+      position: fixed;
+      left: 16px; right: 16px; bottom: 16px;
+      max-width: 380px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      z-index: 10;
+    }
+    #cookie-consent-popup p { margin: 0 0 10px; color: var(--muted); }
+    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions button {
+      font: inherit; font-size: 12px; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+      border: 1px solid var(--line); background: transparent; color: var(--ink);
+    }
+    .cookie-actions #cookie-accept { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-					<section id="banner">
-						<div class="inner">
-							<h2>Resume</h2>
+    @media (prefers-reduced-motion: reduce) {
+      .piece.gone { transform: none !important; transition: opacity .8s; }
+      .hint { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB76FS5Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <header>
+    <span class="name">Stefan DeZarn</span>
+    <span id="counter" class="mono" aria-live="polite"></span>
+  </header>
 
-						</div>
-					</section>
-									<div class="box alt" data-track="resume">
-										<div class="row gtr-50 gtr-uniform">
-											<div class="col-12"><span class="image fit"><img src="images/Stefan_Dezarn_Resume_June_2026.jpg" alt="" /></span></div>
+  <main>
+    <div id="stage">
+      <svg id="mark" viewBox="0 0 400 400" role="img" aria-label="A bar chart mark with hidden imperfections">
+        <defs id="defs">
+          <linearGradient id="gTall" gradientUnits="userSpaceOnUse" x1="0" y1="60" x2="0" y2="340">
+            <stop offset="0" stop-color="#ec8510"/><stop offset="1" stop-color="#d96a00"/>
+          </linearGradient>
+          <linearGradient id="gMid" gradientUnits="userSpaceOnUse" x1="0" y1="160" x2="0" y2="340">
+            <stop offset="0" stop-color="#f8b21a"/><stop offset="1" stop-color="#f09d00"/>
+          </linearGradient>
+          <linearGradient id="gDot" gradientUnits="userSpaceOnUse" x1="0" y1="280" x2="0" y2="340">
+            <stop offset="0" stop-color="#f8b21a"/><stop offset="1" stop-color="#f09d00"/>
+          </linearGradient>
+        </defs>
+        <g id="pieces"></g>
+      </svg>
+    </div>
 
-										</div>
-									</div>
+    <div id="caption" aria-live="polite"></div>
+    <div id="prompt">Find the imperfections.</div>
 
+    <section id="end" aria-hidden="true">
+      <div class="report">
+        <div class="bar mono"><span>stefandezarn.com</span><span>All users</span></div>
+        <div class="body">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 16h10M7 12h4"/>
+          </svg>
+          <h1>This content is <span class="mono">(not set)</span>.</h1>
+          <p>The site is under construction.</p>
+          <div class="links">
+            <a id="email-link" href="mailto:EMAIL_PLACEHOLDER">Email</a>
+            <a href="https://www.linkedin.com/in/stefan-dezarn-7891b2231" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <button class="reprocess mono" id="reprocess" type="button">↻ Reprocess data</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="mono">Data may take up to 48 hours to appear.</footer>
 
+  <div id="cookie-consent-popup" style="display: none;">
+    <p>This page uses cookies for analytics. Fittingly.</p>
+    <div class="cookie-actions">
+      <button id="cookie-accept">Accept</button>
+      <button id="cookie-reject">Reject</button>
+    </div>
+  </div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							
-							<li><a href="https://www.linkedin.com/in/stefan-dezarn-7891b2231" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<ul class="copyright">
-							<li>&copy; Stefan DeZarn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li><a id="time-bandit" href="https://stefandezarn.github.io/time-bandit/">Time Bandit</a></li>
-
-						</ul>
-					</footer>
-
-			</div>
-			<div id="cookie-consent-popup" style="display: none;">
-    			<div class="cookie-inner">
-        			<p>We use cookies for analytics. Accept?</p>
-       				<div class="cookie-actions">
-            			<button id="cookie-accept" class="button primary small">Accept</button>
-            			<button id="cookie-reject" class="button small">Reject</button>
-        			</div>
-    			</div>
-			</div>
-			
-		
-		<!-- Scripts -->
-			<script>
-    				// Get the current query parameters from the homepage
-    				const queryParams = window.location.search;
-
-    				// Get the link to the second page
-    				const link = document.getElementById('time-bandit');
-
-    				// If there are query parameters, append them to the link
-    				if (queryParams) {link.href = link.href + queryParams;
-    						}
- 			 </script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="/assets/js/cookie-consent.js"></script>
-			<script src="/assets/js/ga4-interceptor.js"></script>
-
-	</body>
+  <script src="assets/cookie-consent.js"></script>
+  <script src="assets/game.js"></script>
+</body>
 </html>
-
-
-
-
-
-
-
-
